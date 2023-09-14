@@ -1,0 +1,4 @@
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\x64\Debug\GraphBuilder.vcxproj.AssemblyReference.cache
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\x64\Debug\GraphBuilder.vcxproj.SuggestedBindingRedirects.cache
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\x64\Debug\GraphBuilder.GraphBuilder.resources
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\x64\Debug\GraphBuilder.vcxproj.GenerateResource.cache
