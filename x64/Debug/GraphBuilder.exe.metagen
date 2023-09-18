@@ -19,3 +19,4 @@ Class GraphBuilder.GraphBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFie
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     System.Drawing.Graphics graph : Public
+    Window* window : Public
