@@ -18,5 +18,10 @@ Class GraphBuilder.GraphBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFie
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
+    System.Drawing.Bitmap bitmap : Public
     System.Drawing.Graphics graph : Public
     Window* window : Public
+    Boolean isPanelMove : Public
+    System.Drawing.Point mousePoint : Public
+    Int32 graphScale : Public
+    Boolean graphNotEmpty : Public

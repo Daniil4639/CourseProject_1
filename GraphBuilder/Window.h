@@ -4,13 +4,14 @@
 
 using std::vector;
 using System::Drawing::Graphics;
+using System::Windows::Forms::PictureBox;
 
 class Window {
 private:
 	int width, height;
 	int startX, startY;
-	int lastLineInd;
 	int scale;
+	int lastLineInd = -1;
 	vector <pair<int,pair<int,int>>> colors;
 	vector < vector<pair<float, float>>> lines;
 protected:
@@ -21,7 +22,6 @@ public:
 	~Window();
 	void changeLocation(int, int);
 	void addLine();
-	void drawLine(System::Drawing::Color, Graphics^);
 	void addParams(int, int);
-	void reDraw(Graphics^);
+	void reDraw(System::Drawing::Color,  Graphics^, PictureBox^);
 };

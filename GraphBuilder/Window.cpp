@@ -42,7 +42,7 @@ void Window::addLine() {
 	Equation eq;
 
 	vector<pair<float, float>> newLine;
-	for (int i = 0; i <= 4096; i++) {
+	for (float i = 0; i <= 4096; i+=0.2) {
 		PolarPoint point(eq.solve(i * M_PI / 180), i * M_PI / 180);
 		pair<float, float> res = point.transform();
 		if (i >= 360 && sqrt((res.first - newLine[0].first) * (res.first - newLine[0].first) + (res.second - newLine[0].second) * (res.second - newLine[0].second)) < 0.0001) {
@@ -81,22 +81,10 @@ void Window::addParams(int width, int height) {
 	this->width = width;
 	this->height = height;
 	this->scale = 10;
-	this->lastLineInd = -1;
 }
 
-void Window::drawLine(System::Drawing::Color col, Graphics^ gr) {
+void Window::reDraw(System::Drawing::Color col, Graphics^ gr, PictureBox^ picBox) {
 	this->colors.push_back(make_pair(col.R, make_pair(col.G, col.B)));
-	Pen ^pen = gcnew Pen(col);
-	GraphicsPath^ path = gcnew GraphicsPath();
-
-	for (int i = 0; i < lines[lastLineInd].size() - 1; i++) {
-		path->AddLine(lines[lastLineInd][i].first * scale + startX, -lines[lastLineInd][i].second * scale + startY, lines[lastLineInd][i + 1].first * scale + startX, -lines[lastLineInd][i + 1].second * scale + startY);
-	}
-
-	gr->DrawPath(pen, path);
-}
-
-void Window::reDraw(Graphics^ gr) {
 	for (int j = 0; j <= lastLineInd; j++) {
 		Pen^ pen = gcnew Pen(Color::FromArgb(colors[j].first, colors[j].second.first, colors[j].second.second));
 		GraphicsPath^ path = gcnew GraphicsPath();
