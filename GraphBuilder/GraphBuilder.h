@@ -72,6 +72,10 @@ namespace GraphBuilder {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Label^ label19;
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button6;
 	public:
 
 	private: System::Windows::Forms::Label^ label15;
@@ -130,6 +134,10 @@ namespace GraphBuilder {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
@@ -318,9 +326,9 @@ namespace GraphBuilder {
 			this->label10->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label10->Location = System::Drawing::Point(486, 261);
+			this->label10->Location = System::Drawing::Point(456, 265);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(180, 16);
+			this->label10->Size = System::Drawing::Size(80, 16);
 			this->label10->TabIndex = 28;
 			this->label10->Text = L"Масштаб:";
 			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -338,7 +346,7 @@ namespace GraphBuilder {
 			this->button3->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(531, 293);
+			this->button3->Location = System::Drawing::Point(463, 293);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(40, 40);
 			this->button3->TabIndex = 30;
@@ -351,7 +359,7 @@ namespace GraphBuilder {
 			this->button4->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button4->Location = System::Drawing::Point(577, 293);
+			this->button4->Location = System::Drawing::Point(509, 293);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(40, 40);
 			this->button4->TabIndex = 31;
@@ -364,7 +372,7 @@ namespace GraphBuilder {
 			this->label16->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label16->Location = System::Drawing::Point(617, 256);
+			this->label16->Location = System::Drawing::Point(534, 261);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(29, 25);
 			this->label16->TabIndex = 32;
@@ -376,18 +384,68 @@ namespace GraphBuilder {
 			this->label17->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label17->Location = System::Drawing::Point(646, 256);
+			this->label17->Location = System::Drawing::Point(559, 261);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(20, 25);
 			this->label17->TabIndex = 33;
 			this->label17->Text = L"%";
 			this->label17->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
+			// label18
+			// 
+			this->label18->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label18->Location = System::Drawing::Point(578, 248);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(1, 105);
+			this->label18->TabIndex = 34;
+			// 
+			// label19
+			// 
+			this->label19->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label19->Location = System::Drawing::Point(598, 265);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(80, 16);
+			this->label19->TabIndex = 35;
+			this->label19->Text = L"Поворот:";
+			this->label19->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// button5
+			// 
+			this->button5->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button5->Location = System::Drawing::Point(598, 293);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(40, 40);
+			this->button5->TabIndex = 36;
+			this->button5->Text = L"<";
+			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &GraphBuilder::button5_Click);
+			// 
+			// button6
+			// 
+			this->button6->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button6->Location = System::Drawing::Point(644, 293);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(40, 40);
+			this->button6->TabIndex = 37;
+			this->button6->Text = L">";
+			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &GraphBuilder::button6_Click);
+			// 
 			// GraphBuilder
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(96, 96);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->ClientSize = System::Drawing::Size(700, 450);
+			this->Controls->Add(this->button6);
+			this->Controls->Add(this->button5);
+			this->Controls->Add(this->label19);
+			this->Controls->Add(this->label18);
 			this->Controls->Add(this->label17);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->button4);
@@ -567,6 +625,16 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 			pictureBox1->Top = label15->Height - pictureBox1->Height;
 		}
 	}
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	Bitmap^ flipImage = gcnew Bitmap(pictureBox1->Image);
+	flipImage->RotateFlip(RotateFlipType::Rotate270FlipNone);
+	pictureBox1->Image = flipImage;
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	Bitmap^ flipImage = gcnew Bitmap(pictureBox1->Image);
+	flipImage->RotateFlip(RotateFlipType::Rotate90FlipNone);
+	pictureBox1->Image = flipImage;
 }
 };
 }
