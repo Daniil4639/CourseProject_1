@@ -124,7 +124,10 @@
   <ItemGroup>
     <ClCompile Include="Equation.cpp" />
     <ClCompile Include="GraphBuilder.cpp" />
+    <ClCompile Include="GraphPoint.cpp" />
+    <ClCompile Include="GraphWindow.cpp" />
     <ClCompile Include="PolarPoint.cpp" />
+    <ClCompile Include="PolishEntry.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +135,10 @@
     <ClInclude Include="GraphBuilder.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GraphPoint.h" />
+    <ClInclude Include="GraphWindow.h" />
     <ClInclude Include="PolarPoint.h" />
+    <ClInclude Include="PolishEntry.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

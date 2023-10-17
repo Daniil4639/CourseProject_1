@@ -8,20 +8,15 @@ using System::Windows::Forms::PictureBox;
 
 class Window {
 private:
-	int width, height;
-	int startX, startY;
-	int scale;
-	int lastLineInd = -1;
-	vector <pair<int,pair<int,int>>> colors;
-	vector < vector<pair<float, float>>> lines;
 protected:
+	int width, height;
 public:
+	int startX, startY;
+
 	Window() = default;
 	Window(int, int);
 	Window(const Window&);
 	~Window();
 	void changeLocation(int, int);
-	void addLine();
 	void addParams(int, int);
-	void reDraw(System::Drawing::Color,  Graphics^, PictureBox^);
 };

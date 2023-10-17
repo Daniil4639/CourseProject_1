@@ -20,8 +20,11 @@ Class GraphBuilder.GraphBuilder: AutoLayout, AnsiClass, Class, Public, BeforeFie
   Fields:
     System.Drawing.Bitmap bitmap : Public
     System.Drawing.Graphics graph : Public
-    Window* window : Public
+    GraphWindow* graphWindow : Public
     Boolean isPanelMove : Public
+    Boolean isButtonPlus : Public
+    Boolean IsButtonMinus : Public
+    Boolean formCanChangeSize : Public
     System.Drawing.Point mousePoint : Public
     Int32 graphScale : Public
     Boolean graphNotEmpty : Public

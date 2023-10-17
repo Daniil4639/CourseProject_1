@@ -1,30 +1,18 @@
 ﻿  GraphBuilder.cpp
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(816,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  GraphWindow.cpp
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(816,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(52,39): warning C4305: +=: усечение из "double" в "float"
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(56,61): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(56,78): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(88,25): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(103,37): warning C4305: +=: усечение из "double" в "float"
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(105,50): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(133,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(145,36): warning C4267: -=: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(147,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   Window.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(45,37): warning C4305: +=: усечение из "double" в "float"
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(46,38): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(46,55): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\utility(275,16): warning C4244: инициализация: преобразование "_Ty" в "_Ty1", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-          and
-          [
-              _Ty1=float
-          ]
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(53,31): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<float,float>::pair<int,float,0>(std::pair<int,float> &&) noexcept"
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(53,21): message : см. первую ссылку на "std::pair<float,float>::pair" в "Window::addLine"
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\utility(275,61): warning C4244: инициализация: преобразование "_Ty" в "_Ty2", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-          and
-          [
-              _Ty2=float
-          ]
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(59,31): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<float,float>::pair<float,int,0>(std::pair<float,int> &&) noexcept"
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\Window.cpp(59,21): message : см. первую ссылку на "std::pair<float,float>::pair" в "Window::addLine"
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(816,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   Создание кода...
   Equation.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   GraphBuilder.vcxproj -> C:\Works\C++_Works\Files\GraphBuilder\x64\Debug\GraphBuilder.exe
