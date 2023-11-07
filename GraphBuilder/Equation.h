@@ -9,4 +9,5 @@ protected:
 public:
 	Equation() = default;
 	float solve(string, float);
+	bool trySolve(string);
 };

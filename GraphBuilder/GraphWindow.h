@@ -1,9 +1,13 @@
 #pragma once
 #include "Window.h"
 #include "PolarPoint.h"
+#include <string>
 
 using System::Windows::Forms::TextBox;
 using System::Windows::Forms::Label;
+using std::to_string;
+using std::string;
+using System::String;
 
 class GraphWindow : public Window {
 private:
@@ -21,7 +25,7 @@ public:
 	GraphWindow(int, int);
 	GraphWindow(GraphWindow&);
 	~GraphWindow();
-	void addLine(TextBox^, System::Drawing::Color);
+	void addLine(string, System::Drawing::Color, float, float);
 	void addParams(int, int);
 	void GraphWindow::reDraw(Graphics^, PictureBox^, float);
 	void rotateAll(float deg);

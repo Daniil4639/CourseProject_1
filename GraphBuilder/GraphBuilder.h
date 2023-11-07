@@ -5,6 +5,7 @@
 #include "Equation.h"
 #include <Windows.h>
 #include <string>
+#include <msclr\marshal_cppstd.h>
 #define M_PI 3.14159265358979323846
 
 namespace GraphBuilder {
@@ -86,6 +87,13 @@ namespace GraphBuilder {
 	private: System::Windows::Forms::Label^ label23;
 	private: System::Windows::Forms::CheckedListBox^ checkedListBox1;
 	private: System::Windows::Forms::Button^ button8;
+	private: System::Windows::Forms::Label^ label24;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Label^ label25;
+	private: System::Windows::Forms::Label^ label26;
+	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::Label^ label27;
+
 	public:
 
 	private: System::Windows::Forms::Label^ label15;
@@ -156,6 +164,12 @@ namespace GraphBuilder {
 			this->label23 = (gcnew System::Windows::Forms::Label());
 			this->checkedListBox1 = (gcnew System::Windows::Forms::CheckedListBox());
 			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->label24 = (gcnew System::Windows::Forms::Label());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label25 = (gcnew System::Windows::Forms::Label());
+			this->label26 = (gcnew System::Windows::Forms::Label());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->label27 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
@@ -356,7 +370,7 @@ namespace GraphBuilder {
 			this->label13->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label13->Location = System::Drawing::Point(450, 352);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(252, 1);
+			this->label13->Size = System::Drawing::Size(500, 1);
 			this->label13->TabIndex = 29;
 			// 
 			// button3
@@ -495,7 +509,7 @@ namespace GraphBuilder {
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(180, 30);
 			this->button7->TabIndex = 41;
-			this->button7->Text = L"Выбрать график";
+			this->button7->Text = L"Свойтсва и взаимодействие";
 			this->button7->UseVisualStyleBackColor = false;
 			this->button7->Click += gcnew System::EventHandler(this, &GraphBuilder::button7_Click);
 			// 
@@ -526,14 +540,14 @@ namespace GraphBuilder {
 			this->checkedListBox1->FormattingEnabled = true;
 			this->checkedListBox1->Location = System::Drawing::Point(722, 39);
 			this->checkedListBox1->Name = L"checkedListBox1";
-			this->checkedListBox1->Size = System::Drawing::Size(190, 344);
+			this->checkedListBox1->Size = System::Drawing::Size(190, 259);
 			this->checkedListBox1->TabIndex = 44;
 			this->checkedListBox1->ItemCheck += gcnew System::Windows::Forms::ItemCheckEventHandler(this, &GraphBuilder::checkedListBox1_ItemCheck);
 			// 
 			// button8
 			// 
 			this->button8->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->button8->Location = System::Drawing::Point(726, 400);
+			this->button8->Location = System::Drawing::Point(727, 304);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(180, 38);
 			this->button8->TabIndex = 45;
@@ -541,12 +555,83 @@ namespace GraphBuilder {
 			this->button8->UseVisualStyleBackColor = false;
 			this->button8->Click += gcnew System::EventHandler(this, &GraphBuilder::button8_Click);
 			// 
+			// label24
+			// 
+			this->label24->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->label24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label24->Location = System::Drawing::Point(738, 356);
+			this->label24->Name = L"label24";
+			this->label24->Size = System::Drawing::Size(160, 16);
+			this->label24->TabIndex = 46;
+			this->label24->Text = L"Диапозон в градусах:";
+			this->label24->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(762, 386);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(136, 20);
+			this->textBox2->TabIndex = 47;
+			this->textBox2->Text = L"0";
+			// 
+			// label25
+			// 
+			this->label25->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label25->Location = System::Drawing::Point(718, 384);
+			this->label25->Name = L"label25";
+			this->label25->Size = System::Drawing::Size(38, 20);
+			this->label25->TabIndex = 48;
+			this->label25->Text = L"от:";
+			this->label25->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label26
+			// 
+			this->label26->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->label26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label26->Location = System::Drawing::Point(718, 418);
+			this->label26->Name = L"label26";
+			this->label26->Size = System::Drawing::Size(38, 20);
+			this->label26->TabIndex = 49;
+			this->label26->Text = L"до:";
+			this->label26->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(762, 418);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(136, 20);
+			this->textBox3->TabIndex = 50;
+			this->textBox3->Text = L"2048";
+			// 
+			// label27
+			// 
+			this->label27->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->label27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label27->ForeColor = System::Drawing::Color::Red;
+			this->label27->Location = System::Drawing::Point(458, 34);
+			this->label27->Name = L"label27";
+			this->label27->Size = System::Drawing::Size(14, 30);
+			this->label27->TabIndex = 51;
+			this->label27->Text = L"!";
+			this->label27->Visible = false;
+			// 
 			// GraphBuilder
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(96, 96);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(701, 450);
+			this->Controls->Add(this->label27);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->label26);
+			this->Controls->Add(this->label25);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->label24);
 			this->Controls->Add(this->button8);
 			this->Controls->Add(this->checkedListBox1);
 			this->Controls->Add(this->label23);
@@ -600,20 +685,41 @@ namespace GraphBuilder {
 
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		graphNotEmpty = true;
+		Equation eq;
+		string str = msclr::interop::marshal_as<std::string>(textBox1->Text);
 
-		graphWindow->addLine(textBox1, label7->BackColor);
+		if (str == "" || !eq.trySolve(str)) {
+			label27->Visible = true;
+			return;
+		}
 
-		checkedListBox1->Items->Add("y = " + textBox1->Text);
-		checkedListBox1->SetItemChecked(graphWindow->lastLineInd, true);
+		label27->Visible = false;
 
-		textBox1->Text = "";
+		float start, end;
+		try {
+			start = stof(msclr::interop::marshal_as<std::string>(textBox2->Text));
+			end = stof(msclr::interop::marshal_as<std::string>(textBox3->Text));
+		}
+		catch (invalid_argument iA) {
+			return;
+		}
 
-		graph->Clear(SystemColors::Control);
+		if (str != "") {
+			graphNotEmpty = true;
 
-		graphWindow->reDraw(graph, pictureBox1, graphWindow->scale * 100 / graphScale);
+			graphWindow->addLine(str, label7->BackColor, start, end);
 
-		pictureBox1->Image = bitmap;
+			checkedListBox1->Items->Add("y = " + textBox1->Text);
+			checkedListBox1->SetItemChecked(graphWindow->lastLineInd, true);
+
+			textBox1->Text = "";
+
+			graph->Clear(SystemColors::Control);
+
+			graphWindow->reDraw(graph, pictureBox1, graphWindow->scale * 100 / graphScale);
+
+			pictureBox1->Image = bitmap;
+		}
 	}
 
 	private: System::Void GraphBuilder_Load(System::Object^ sender, System::EventArgs^ e) {

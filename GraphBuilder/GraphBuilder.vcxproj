@@ -128,6 +128,7 @@
     <ClCompile Include="GraphWindow.cpp" />
     <ClCompile Include="PolarPoint.cpp" />
     <ClCompile Include="PolishEntry.cpp" />
+    <ClCompile Include="PolishException.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="GraphWindow.h" />
     <ClInclude Include="PolarPoint.h" />
     <ClInclude Include="PolishEntry.h" />
+    <ClInclude Include="PolishException.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

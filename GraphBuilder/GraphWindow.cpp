@@ -1,16 +1,13 @@
 #include "GraphWindow.h"
 #include "Equation.h"
 #include "GraphBuilder.h"
+#include "PolishException.h"
 #include <iomanip>
-#include <string>
 #include <msclr\marshal_cppstd.h>
 
 using System::Drawing::Pen;
 using System::Drawing::Color;
 using System::Drawing::Drawing2D::GraphicsPath;
-using std::to_string;
-using std::string;
-using System::String;
 
 GraphWindow::GraphWindow() : Window(){
 	maxCoordinate = 1;
@@ -43,17 +40,20 @@ GraphWindow::~GraphWindow() {
 	colors.~vector();
 }
 
-void GraphWindow::addLine(TextBox^ text, System::Drawing::Color col) {
+void GraphWindow::addLine(string str, System::Drawing::Color col, float start, float end) {
 	Equation eq;
 	lineIsChecked.push_back(false);
 	this->colors.push_back(make_pair(col.R, make_pair(col.G, col.B)));
 
 	vector<PolarPoint*> newLine;
-	for (float i = 0; i <= 8192; i += 0.2) {
+	for (float i = start; i <= end; i += 0.04) {
 
-		string str = msclr::interop::marshal_as<std::string>(text->Text);
+		float rValue = eq.solve(str, i * M_PI / 180);
+		if (rValue == NULL) {
+			continue;
+		}
 
-		PolarPoint* point = new PolarPoint(eq.solve(str, i * M_PI / 180), i * M_PI / 180);
+		PolarPoint* point = new PolarPoint(rValue, i * M_PI / 180);
 
 		if (abs(point->transform().first) > maxCoordinate) {
 			maxCoordinate = abs(point->transform().first);

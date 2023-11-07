@@ -52,6 +52,10 @@ bool PolishEntry::processOperator(vector<string>& values, char op, double arg) {
     string rStr, lStr;
     double r, l = 1;
 
+    if (values.empty()) {
+        throw PolishException::WrongEquationException("wrong equation");
+    }
+
     rStr = values[values.size() - 1];
     values.pop_back();
 
@@ -71,6 +75,10 @@ bool PolishEntry::processOperator(vector<string>& values, char op, double arg) {
     if (op != 'n' && op != 'a' && op != 'f'
         && op != 's' && op != 'c' && op != 't' && op != 'q'
         && op != 'u' && op != 'i' && op != 'o' && op != 'p') {
+
+        if (values.empty()) {
+            throw PolishException::WrongEquationException("wrong equation");
+        }
 
         lStr = values[values.size() - 1];
         values.pop_back();
@@ -100,21 +108,53 @@ bool PolishEntry::processOperator(vector<string>& values, char op, double arg) {
         values.push_back(to_string(l * r));
         break;
     case '/':
+
+        if (r == 0) {
+            throw PolishException::EvalException("div");
+        }
+
         values.push_back(to_string(l / r));
         break;
     case '%':
+
+        if (r == 0) {
+            throw PolishException::EvalException("mod");
+        }
+
         values.push_back(to_string((int)l % (int)r));
         break;
     case '^':
-        values.push_back(to_string(pow(l ,r)));
+
+        if (l == 0) {
+            values.push_back(to_string(0));
+        }
+        else {
+
+            if (l < 0 && abs(r) < 1) {
+                throw PolishException::EvalException("pow");
+            }
+            else {
+                values.push_back(to_string(pow(l, r)));
+            }
+        }
         break;
     case 'n':
+
+        if (r <= 0) {
+            throw PolishException::EvalException("log");
+        }
+
         values.push_back(to_string(log(r)));
         break;
     case 'a':
         values.push_back(to_string(abs(r)));
         break;
     case 'f':
+
+        if (r <= 0) {
+            throw PolishException::EvalException("fact");
+        }
+
         values.push_back(to_string(factorial(r)));
         break;
     case 's':
@@ -150,116 +190,132 @@ float PolishEntry::eval(string s, double arg) {
     vector<string> values;
     vector<char> op;
 
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
+    try {
+        for (int i = 0; i < s.length(); i++) {
+            char c = s[i];
 
-        if (isDelim(c)) {
-            continue;
-        }
-        if (c == '(') {
-            op.push_back(c);
-        }
-        else if (c == ')') {
-            while (op[op.size() - 1] != '(') {
-                processOperator(values, op[op.size() - 1], arg);
+            if (isDelim(c)) {
+                continue;
+            }
+            if (c == '(') {
+                op.push_back(c);
+            }
+            else if (c == ')') {
+                while (op[op.size() - 1] != '(') {
+
+                    if (op.empty()) {
+                        throw PolishException::WrongEquationException("wrong equation");
+                    }
+
+                    processOperator(values, op[op.size() - 1], arg);
+                    op.pop_back();
+
+                    if (op.size() == 0) {
+                        throw PolishException::WrongEquationException("wrong equation");
+                    }
+                }
                 op.pop_back();
             }
+            else if (isOperator(c)) {
+                if (c == 'l' && s[i + 1] == 'n') {
+                    c == 'n';
+                }
+                else if (c == 'c' && s[i + 1] == 't') {
+                    c = 'q';
+                }
+                else if (c == 'a' && s[i + 1] == 's') {
+                    c = 'u';
+                }
+                else if (c == 'a' && s[i + 1] == 'c' && s[i + 2] == 'o') {
+                    c = 'i';
+                }
+                else if (c == 'a' && s[i + 1] == 't') {
+                    c = 'o';
+                }
+                else if (c == 'a' && s[i + 1] == 'c' && s[i + 2] == 't') {
+                    c = 'p';
+                }
+
+                if (c == '-') {
+                    bool minusOk = false;
+                    int j = i - 1;
+                    while (j >= 0) {
+                        if (s[j] == ' ') {
+                            j--;
+                        }
+                        else if (s[j] >= '0' && s[j] <= '9' || s[j] == 'x') {
+                            minusOk = true;
+                            break;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    if (!minusOk) {
+                        values.push_back("0");
+                    }
+                }
+
+                while (!op.empty() && priority(op[op.size() - 1]) >= priority(c)) {
+                    processOperator(values, op[op.size() - 1], arg);
+                    op.pop_back();
+                }
+                op.push_back(c);
+
+                if (c == 'a' || c == 's' || c == 'c' || c == 'q' || c == 'o') {
+                    i += 2;
+                }
+                else if (c == 'f' || c == 'u' || c == 'i' || c == 'p') {
+                    i += 3;
+                }
+                else if (c == 'n' || c == 't') {
+                    i++;
+                }
+            }
+            else if (c == 'x') {
+                values.push_back("x");
+            }
+            else if (c == 'π') {
+                values.push_back("π");
+            }
+            else if (c == 'e') {
+                values.push_back("e");
+            }
+            else if (s[i] >= '0' && s[i] <= '9' || s[i] == '.') {
+                string operand = "";
+                while (i < s.length() && (s[i] >= '0' && s[i] <= '9' || s[i] == '.')) {
+                    operand += s[i];
+                    i++;
+                }
+                i--;
+                values.push_back(operand);
+            }
+            else {
+                throw PolishException::WrongEquationException("wrong equation");
+            }
+        }
+
+        while (!op.empty()) {
+            processOperator(values, op[op.size() - 1], arg);
             op.pop_back();
         }
-        else if (isOperator(c)) {
-            if (c == 'l' && s[i + 1] == 'n') {
-                c == 'n';
-            }
-            else if (c == 'c' && s[i + 1] == 't') {
-                c = 'q';
-            }
-            else if (c == 'a' && s[i + 1] == 's') {
-                c = 'u';
-            }
-            else if (c == 'a' && s[i + 1] == 'c' && s[i+2] == 'o') {
-                c = 'i';
-            }
-            else if (c == 'a' && s[i + 1] == 't') {
-                c = 'o';
-            }
-            else if (c == 'a' && s[i + 1] == 'c' && s[i + 2] == 't') {
-                c = 'p';
-            }
 
-            if (c == '-') {
-                bool minusOk = false;
-                int j = i - 1;
-                while (j >= 0) {
-                    if (s[j] == ' ') {
-                        j--;
-                    }
-                    else if (s[j] >= '0' && s[j] <= '9' || s[j] == 'x') {
-                        minusOk = true;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-
-                if (!minusOk) {
-                    values.push_back("0");
-                }
-            }
-
-            while (!op.empty() && priority(op[op.size() - 1]) >= priority(c)) {
-                processOperator(values, op[op.size() - 1], arg);
-                op.pop_back();
-            }
-            op.push_back(c);
-
-            if (c == 'a' || c == 's' || c == 'c' || c == 'q' || c == 'o') {
-                i += 2;
-            }
-            else if (c == 'f' || c == 'u' || c == 'i' || c == 'p') {
-                i += 3;
-            }
-            else if (c == 'n' || c == 't') {
-                i++;
-            }
+        string res = values[0];
+        if (res == "x") {
+            return arg;
         }
-        else if (c == 'x') {
-            values.push_back("x");
+        else if (res == "e") {
+            return M_E;
         }
-        else if (c == 'π') {
-            values.push_back("π");
-        }
-        else if (c == 'e') {
-            values.push_back("e");
+        else if (res == "π") {
+            return M_PI;
         }
         else {
-            string operand = "";
-            while (i < s.length() && (s[i] >= '0' && s[i] <= '9' || s[i] == '.')) {
-                operand += s[i];
-                i++;
-            }
-            i--;
-            values.push_back(operand);
+            return stod(res);
         }
     }
-
-    while (!op.empty()) {
-        processOperator(values, op[op.size() - 1], arg);
-        op.pop_back();
+    catch (PolishException::EvalException evEx) {
+        return NULL;
     }
-
-    string res = values[0];
-    if (res == "x") {
-        return arg;
-    }
-    else if (res == "e") {
-        return M_E;
-    }
-    else if (res == "π") {
-        return M_PI;
-    }
-    else {
-        return stod(res);
-    }
-
 }
