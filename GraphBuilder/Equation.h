@@ -8,6 +8,6 @@ private:
 protected:
 public:
 	Equation() = default;
-	float solve(string, float);
-	bool trySolve(string);
+	float solve(string, float, string);
+	bool trySolve(string, string);
 };

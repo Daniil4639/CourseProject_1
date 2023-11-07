@@ -2,13 +2,13 @@
 #include "PolishEntry.h"
 #include <algorithm>
 
-float Equation::solve(string eq, float param) {
-	PolishEntry* pol = new PolishEntry();
+float Equation::solve(string eq, float param, string argSymbol) {
+	PolishEntry* pol = new PolishEntry(argSymbol);
 	return pol->eval(eq, param);
 }
 
-bool Equation::trySolve(string eq) {
-	PolishEntry* pol = new PolishEntry();
+bool Equation::trySolve(string eq, string argSymbol) {
+	PolishEntry* pol = new PolishEntry(argSymbol);
 	
 	try {
 		pol->eval(eq, 1);

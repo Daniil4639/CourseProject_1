@@ -1,5 +1,9 @@
 ﻿#include "PolishEntry.h"
 
+PolishEntry::PolishEntry(string argSymbol) {
+    this->argSymbol = argSymbol;
+}
+
 long PolishEntry::factorial(long arg) {
 	long res = 1;
 	for (int i = 2; i <= arg; i++) {
@@ -59,7 +63,7 @@ bool PolishEntry::processOperator(vector<string>& values, char op, double arg) {
     rStr = values[values.size() - 1];
     values.pop_back();
 
-    if (rStr == "x") {
+    if (rStr == argSymbol) {
         r = arg;
     }
     else if (rStr == "π") {
@@ -83,7 +87,7 @@ bool PolishEntry::processOperator(vector<string>& values, char op, double arg) {
         lStr = values[values.size() - 1];
         values.pop_back();
 
-        if (lStr == "x") {
+        if (lStr == argSymbol) {
             l = arg;
         }
         else if (lStr == "π") {
@@ -217,8 +221,25 @@ float PolishEntry::eval(string s, double arg) {
                 op.pop_back();
             }
             else if (isOperator(c)) {
+                bool argOk = false;
+
                 if (c == 'l' && s[i + 1] == 'n') {
-                    c == 'n';
+                    c = 'n';
+                }
+                else if (c == 'f' && s[i + 1] == 'a') {
+                    c = 'f';
+                }
+                else if (c == 'a' && s[i + 1] == 'b') {
+                    c = 'a';
+                }
+                else if (c == 's' && s[i + 1] == 'i') {
+                    c = 's';
+                }
+                else if (c == 'c' && s[i + 1] == 'o') {
+                    c = 'c';
+                }
+                else if (c == 't' && s[i + 1] == 'g') {
+                    c = 't';
                 }
                 else if (c == 'c' && s[i + 1] == 't') {
                     c = 'q';
@@ -235,46 +256,52 @@ float PolishEntry::eval(string s, double arg) {
                 else if (c == 'a' && s[i + 1] == 'c' && s[i + 2] == 't') {
                     c = 'p';
                 }
+                else if (c == argSymbol[0]) {
+                    values.push_back(argSymbol);
+                    argOk = true;
+                }
 
-                if (c == '-') {
-                    bool minusOk = false;
-                    int j = i - 1;
-                    while (j >= 0) {
-                        if (s[j] == ' ') {
-                            j--;
+                if (!argOk) {
+                    if (c == '-') {
+                        bool minusOk = false;
+                        int j = i - 1;
+                        while (j >= 0) {
+                            if (s[j] == ' ') {
+                                j--;
+                            }
+                            else if (s[j] >= '0' && s[j] <= '9' || s[j] == argSymbol[0]) {
+                                minusOk = true;
+                                break;
+                            }
+                            else {
+                                break;
+                            }
                         }
-                        else if (s[j] >= '0' && s[j] <= '9' || s[j] == 'x') {
-                            minusOk = true;
-                            break;
-                        }
-                        else {
-                            break;
+
+                        if (!minusOk) {
+                            values.push_back("0");
                         }
                     }
 
-                    if (!minusOk) {
-                        values.push_back("0");
+                    while (!op.empty() && priority(op[op.size() - 1]) >= priority(c)) {
+                        processOperator(values, op[op.size() - 1], arg);
+                        op.pop_back();
                     }
-                }
+                    op.push_back(c);
 
-                while (!op.empty() && priority(op[op.size() - 1]) >= priority(c)) {
-                    processOperator(values, op[op.size() - 1], arg);
-                    op.pop_back();
-                }
-                op.push_back(c);
-
-                if (c == 'a' || c == 's' || c == 'c' || c == 'q' || c == 'o') {
-                    i += 2;
-                }
-                else if (c == 'f' || c == 'u' || c == 'i' || c == 'p') {
-                    i += 3;
-                }
-                else if (c == 'n' || c == 't') {
-                    i++;
+                    if (c == 'a' || c == 's' || c == 'c' || c == 'q' || c == 'o') {
+                        i += 2;
+                    }
+                    else if (c == 'f' || c == 'u' || c == 'i' || c == 'p') {
+                        i += 3;
+                    }
+                    else if (c == 'n' || c == 't') {
+                        i++;
+                    }
                 }
             }
-            else if (c == 'x') {
-                values.push_back("x");
+            else if (c == argSymbol[0]) {
+                values.push_back(argSymbol);
             }
             else if (c == 'π') {
                 values.push_back("π");
@@ -302,7 +329,7 @@ float PolishEntry::eval(string s, double arg) {
         }
 
         string res = values[0];
-        if (res == "x") {
+        if (res == argSymbol) {
             return arg;
         }
         else if (res == "e") {

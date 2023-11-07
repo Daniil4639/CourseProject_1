@@ -1,18 +1,13 @@
-﻿  GraphBuilder.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(922,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  GraphWindow.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(922,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(49,43): warning C4305: +=: усечение из "double" в "float"
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(51,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(56,55): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(88,25): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(103,37): warning C4305: +=: усечение из "double" в "float"
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(105,50): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(133,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(145,36): warning C4267: -=: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(147,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  Window.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(922,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  Создание кода...
+﻿  PolishEntry.cpp
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(69,22): warning C4566: символ, представленный универсальным именем символа "\u03C0", невозможно представить в текущей кодовой странице (1251)
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(93,26): warning C4566: символ, представленный универсальным именем символа "\u03C0", невозможно представить в текущей кодовой странице (1251)
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(162,46): warning C4244: аргумент: преобразование "double" в "long", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(306,27): warning C4566: символ, представленный универсальным именем символа "\u03C0", невозможно представить в текущей кодовой странице (1251)
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(307,34): warning C4566: символ, представленный универсальным именем символа "\u03C0", невозможно представить в текущей кодовой странице (1251)
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(333,20): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(336,20): warning C4305: return: усечение из "double" в "float"
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(338,25): warning C4566: символ, представленный универсальным именем символа "\u03C0", невозможно представить в текущей кодовой странице (1251)
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(339,20): warning C4305: return: усечение из "double" в "float"
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\PolishEntry.cpp(342,24): warning C4244: return: преобразование "double" в "float", возможна потеря данных
   Equation.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   GraphBuilder.vcxproj -> C:\Works\C++_Works\Files\GraphBuilder\x64\Debug\GraphBuilder.exe

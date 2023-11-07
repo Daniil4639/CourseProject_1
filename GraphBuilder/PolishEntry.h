@@ -9,6 +9,8 @@ using namespace std;
 
 class PolishEntry {
 private:
+    string argSymbol;
+
     long factorial(long);
 
     bool isDelim(char);
@@ -20,5 +22,7 @@ private:
     bool processOperator(vector<string>&, char, double);
 protected:
 public:
+    PolishEntry(string argSymbol);
+
     float eval(string, double);
 };

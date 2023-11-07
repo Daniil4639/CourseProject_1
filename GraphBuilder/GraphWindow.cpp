@@ -10,21 +10,18 @@ using System::Drawing::Color;
 using System::Drawing::Drawing2D::GraphicsPath;
 
 GraphWindow::GraphWindow() : Window(){
-	maxCoordinate = 1;
 	hasCicle = false;
 	scale = 0;
 	lastLineInd = -1;
 }
 
 GraphWindow::GraphWindow(int width, int height) : Window(width, height) {
-	maxCoordinate = 1;
 	hasCicle = false;
 	scale = 0;
 	lastLineInd = -1;
 }
 
 GraphWindow::GraphWindow(GraphWindow& copy) : Window(copy) {
-	maxCoordinate = copy.maxCoordinate;
 	lastLineInd = copy.lastLineInd;
 	lines = copy.lines;
 	colors = copy.colors;
@@ -40,7 +37,7 @@ GraphWindow::~GraphWindow() {
 	colors.~vector();
 }
 
-void GraphWindow::addLine(string str, System::Drawing::Color col, float start, float end) {
+void GraphWindow::addLine(string str, System::Drawing::Color col, float start, float end, string argument) {
 	Equation eq;
 	lineIsChecked.push_back(false);
 	this->colors.push_back(make_pair(col.R, make_pair(col.G, col.B)));
@@ -48,20 +45,12 @@ void GraphWindow::addLine(string str, System::Drawing::Color col, float start, f
 	vector<PolarPoint*> newLine;
 	for (float i = start; i <= end; i += 0.04) {
 
-		float rValue = eq.solve(str, i * M_PI / 180);
+		float rValue = eq.solve(str, i * M_PI / 180, argument);
 		if (rValue == NULL) {
 			continue;
 		}
 
 		PolarPoint* point = new PolarPoint(rValue, i * M_PI / 180);
-
-		if (abs(point->transform().first) > maxCoordinate) {
-			maxCoordinate = abs(point->transform().first);
-		}
-
-		if (abs(point->transform().second) > maxCoordinate) {
-			maxCoordinate = abs(point->transform().second);
-		}
 
 		if (i >= 360 && sqrt((point->transform().first - newLine[0]->transform().first) * (point->transform().first - newLine[0]->transform().first) + (point->transform().second - newLine[0]->transform().second) * (point->transform().second - newLine[0]->transform().second)) < 0.0001) {
 			newLine.push_back(new PolarPoint(newLine[0]));
@@ -78,26 +67,11 @@ void GraphWindow::addLine(string str, System::Drawing::Color col, float start, f
 
 void GraphWindow::addParams(int width, int height) {
 	Window::addParams(width, height);
-	this->maxCoordinate = 1;
 	hasCicle = false;
-	this->scale = 0;
+	this->scale = startX / 2;
 }
 
 void GraphWindow::reDraw(Graphics^ gr, PictureBox^ picBox, float scale) {
-	if (maxCoordinate > width / 2) {
-		maxCoordinate = width / 2;
-	}
-
-	if (this->scale == 0) {
-		if (hasCicle) {
-			this->scale = max(1, min((width / 2) / maxCoordinate, (height / 2) / maxCoordinate) / 2);
-		}
-		else {
-			this->scale = min((width / 2) / maxCoordinate, (height / 2) / maxCoordinate) + 2;
-		}
-
-		scale = this->scale;
-	}
 
 	GraphicsPath^ circle = gcnew GraphicsPath();
 	for (float i = 0; i < 360; i += 0.2) {

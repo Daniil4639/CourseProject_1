@@ -93,6 +93,7 @@ namespace GraphBuilder {
 	private: System::Windows::Forms::Label^ label26;
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Label^ label27;
+	private: System::Windows::Forms::TextBox^ textBox4;
 
 	public:
 
@@ -170,6 +171,7 @@ namespace GraphBuilder {
 			this->label26 = (gcnew System::Windows::Forms::Label());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label27 = (gcnew System::Windows::Forms::Label());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
@@ -474,11 +476,11 @@ namespace GraphBuilder {
 			this->label20->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label20->Location = System::Drawing::Point(486, 9);
+			this->label20->Location = System::Drawing::Point(456, 9);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(180, 16);
 			this->label20->TabIndex = 38;
-			this->label20->Text = L"¬ведите уравнение:";
+			this->label20->Text = L"¬ведите уравнение по:";
 			this->label20->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label21
@@ -620,12 +622,24 @@ namespace GraphBuilder {
 			this->label27->Text = L"!";
 			this->label27->Visible = false;
 			// 
+			// textBox4
+			// 
+			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->textBox4->Location = System::Drawing::Point(634, 9);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(32, 20);
+			this->textBox4->TabIndex = 52;
+			this->textBox4->Text = L"x";
+			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
 			// GraphBuilder
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(96, 96);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(701, 450);
+			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->label27);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->label26);
@@ -687,8 +701,10 @@ namespace GraphBuilder {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Equation eq;
 		string str = msclr::interop::marshal_as<std::string>(textBox1->Text);
+		string argument = msclr::interop::marshal_as<std::string>(textBox4->Text);
 
-		if (str == "" || !eq.trySolve(str)) {
+		if (str == "" || argument.length() != 1 || argument == " "
+			|| argument == ")" || argument == "(" || !eq.trySolve(str, argument)) {
 			label27->Visible = true;
 			return;
 		}
@@ -707,7 +723,7 @@ namespace GraphBuilder {
 		if (str != "") {
 			graphNotEmpty = true;
 
-			graphWindow->addLine(str, label7->BackColor, start, end);
+			graphWindow->addLine(str, label7->BackColor, start, end, argument);
 
 			checkedListBox1->Items->Add("y = " + textBox1->Text);
 			checkedListBox1->SetItemChecked(graphWindow->lastLineInd, true);

@@ -12,7 +12,6 @@ using System::String;
 class GraphWindow : public Window {
 private:
 protected:
-	float maxCoordinate;
 	bool hasCicle;
 	vector<bool> lineIsChecked;
 	vector <pair<int, pair<int, int>>> colors;
@@ -25,7 +24,7 @@ public:
 	GraphWindow(int, int);
 	GraphWindow(GraphWindow&);
 	~GraphWindow();
-	void addLine(string, System::Drawing::Color, float, float);
+	void addLine(string, System::Drawing::Color, float, float, string);
 	void addParams(int, int);
 	void GraphWindow::reDraw(Graphics^, PictureBox^, float);
 	void rotateAll(float deg);
