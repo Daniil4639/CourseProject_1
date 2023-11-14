@@ -703,8 +703,8 @@ namespace GraphBuilder {
 		string str = msclr::interop::marshal_as<std::string>(textBox1->Text);
 		string argument = msclr::interop::marshal_as<std::string>(textBox4->Text);
 
-		if (str == "" || argument.length() != 1 || argument == " "
-			|| argument == ")" || argument == "(" || !eq.trySolve(str, argument)) {
+		if (str == "" || argument.length() != 1 || (argument[0] < 65) || (argument[0] > 122)
+			|| (argument[0] > 90 && argument[0] < 97) || !eq.trySolve(str, argument)) {
 			label27->Visible = true;
 			return;
 		}
