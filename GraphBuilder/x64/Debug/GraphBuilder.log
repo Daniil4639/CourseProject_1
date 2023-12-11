@@ -1,18 +1,16 @@
 ﻿  GraphBuilder.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(938,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(956,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   GraphWindow.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(938,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(956,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(46,43): warning C4305: +=: усечение из "double" в "float"
 C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(48,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(53,55): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(71,23): warning C4244: =: преобразование "int" в "float", возможна потеря данных
 C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(77,37): warning C4305: +=: усечение из "double" в "float"
 C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(79,50): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(107,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(119,36): warning C4267: -=: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(121,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  Window.cpp
-C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphBuilder.h(938,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(105,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(117,36): warning C4267: -=: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Works\C++_Works\Files\GraphBuilder\GraphBuilder\GraphWindow.cpp(119,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   Создание кода...
   Equation.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   GraphBuilder.vcxproj -> C:\Works\C++_Works\Files\GraphBuilder\x64\Debug\GraphBuilder.exe

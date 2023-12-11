@@ -1,6 +1,5 @@
 #pragma once
 #include "Window.h"
-#include "PolarPoint.h"
 #include <string>
 
 using System::Windows::Forms::TextBox;

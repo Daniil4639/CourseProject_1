@@ -94,8 +94,6 @@ void GraphWindow::reDraw(Graphics^ gr, PictureBox^ picBox, float scale) {
 			path->AddLine(lines[j][i]->transform().first * scale + startX, -lines[j][i]->transform().second * scale + startY, lines[j][i + 1]->transform().first * scale + startX, -lines[j][i + 1]->transform().second * scale + startY);
 		}
 
-		//path->AddLine(startX, startY, startX + width / 3, startY + height / 3);
-
 		gr->DrawPath(pen, path);
 	}
 }

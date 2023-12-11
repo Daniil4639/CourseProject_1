@@ -1,5 +1,4 @@
 #include "Window.h"
-#include "GraphBuilder.h"
 
 using System::Drawing::Drawing2D::GraphicsPath;
 using System::Drawing::Pen;

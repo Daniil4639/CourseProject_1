@@ -19,7 +19,11 @@ private:
 
     int priority(char);
 
-    bool processOperator(vector<string>&, char, double);
+    void checkOperator(char&, string&, int&, vector<string>&, vector<char>&, double&);
+
+    void getNumber(int&, string&, vector<string>&);
+
+    void processOperator(vector<string>&, char, double);
 protected:
 public:
     PolishEntry(string argSymbol);
